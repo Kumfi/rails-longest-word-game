@@ -3,3 +3,13 @@
 
 const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
+
+const results = document.querySelector('#results');
+
+const searchDictionary = (query) => {
+  fetch(`https://wagon-dictionary.herokuapp.com/autocomplete/${query}`)
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data)
+    });
+  };
